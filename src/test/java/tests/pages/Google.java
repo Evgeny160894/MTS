@@ -1,4 +1,4 @@
-package tests.Pages;
+package tests.pages;
 
 import org.openqa.selenium.*;
 

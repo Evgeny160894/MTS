@@ -1,6 +1,6 @@
-package tests.Steps;
+package tests.stepsDefinitions;
 
-import tests.Pages.Google;
+import tests.pages.Google;
 import io.cucumber.java.ru.Тогда;
 
 import static com.codeborne.selenide.Selenide.*;

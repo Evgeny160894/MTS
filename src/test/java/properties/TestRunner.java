@@ -1,4 +1,4 @@
-package Properties;
+package properties;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.junit.Cucumber;
@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"Features"},
+        features = {"src/test/java/features"},
         tags = "@Test",
-        glue = {"src/test/java/tests/Steps"},
+        glue = {"src/test/java/tests/stepsDefinitions"},
         dryRun = false,
         monochrome = false,
         plugin = {"pretty"}
