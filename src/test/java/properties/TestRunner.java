@@ -5,6 +5,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -14,23 +15,19 @@ import org.junit.runner.RunWith;
         dryRun = false,
         monochrome = false,
         plugin = {"pretty"}
-//
+
 //        //plugin = {"pretty", "de.monochromata.cucumber.report.PrettyReports:target/cucumber"}
 )
 public class TestRunner {
-
-    public static String stand;
-
     @BeforeClass
     static public void setUpRunner() {
-
 //        stand="DEV8";
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+        ChromeOptions option = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+
         Configuration.startMaximized = true;
         Configuration.timeout = 15000;
         Configuration.browser = "chrome";
-
-
     }
 }
 
