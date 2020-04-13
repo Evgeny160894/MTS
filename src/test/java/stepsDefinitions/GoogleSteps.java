@@ -7,7 +7,7 @@ import io.cucumber.java.ru.Тогда;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class GoogleSteps extends Google {
+public class GoogleSteps {
 
     @Тогда("^Переход на страницу \"([^\"]*)\"$")
     public void goToPage(String link) {
