@@ -1,15 +1,13 @@
 package stepsDefinitions;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import pages.Google;
 import io.cucumber.java.ru.Тогда;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class GoogleSteps {
 
-    @Тогда("^Переход на страницу \"([^\"]*)\"$")
+    @Тогда("Переход на страницу {string}")
     public void goToPage(String link) {
         open(link);
     }
