@@ -1,4 +1,4 @@
-package utils.annotations.analyzer;
+package utils.annotations.locatorAnalyzers;
 
 import com.codeborne.selenide.SelenideElement;
 import utils.annotations.LocatorProp;
