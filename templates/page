@@ -1,0 +1,12 @@
+package pages;
+
+import com.codeborne.selenide.SelenideElement;
+import utils.annotations.LocatorProp;
+
+public class /*namePage*/ {
+
+    @LocatorProp(
+            name = " *Название локатора* ",
+            xpath = " *xpath локатора* ")
+    public SelenideElement /*Название переменной*/ varName;
+}

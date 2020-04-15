@@ -1,0 +1,15 @@
+package stepsDefinitions;
+
+import io.cucumber.java.ru.Тогда;
+import pages./*namePage*/;
+import utils.helpers.LocatorsAdder;
+
+public class /*namePageSteps*/ extends BasicSteps {
+    private final LocatorsAdder locatorsAdder = new LocatorsAdder(/*namePage*/.class);
+
+    @Тогда(" *Название шага* ")
+    public void /*TODO название метода */ goToPage() {
+        /*TODO описание работы метода */
+    }
+
+}
