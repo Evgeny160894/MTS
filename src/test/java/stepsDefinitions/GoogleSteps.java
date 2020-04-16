@@ -19,10 +19,4 @@ public class GoogleSteps extends BasicSteps {
     public void setInField(String nameField, String value) {
         $(By.xpath(lm(nameField))).setValue(value).pressEnter();
     }
-
-    @Тогда("Просмотр сохраненных локаторов")
-    public void dw() {
-        System.out.println(BasicSteps.locatorsMap.keySet());
-    }
-
 }
