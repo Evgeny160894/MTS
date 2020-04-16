@@ -3,7 +3,7 @@
 Функция: Работа с Google
 
 @Test
-@DisplayName ("Human-readable test name")
+#@DisplayName ("Human-readable test name")
 Сценарий: Поиск в Google
   Тогда Переход на страницу "https://www.google.com/"
 #  Тогда Вод в "Поиск Гугл" значения "привет"
