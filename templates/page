@@ -2,7 +2,9 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import utils.annotations.LocatorProp;
+import utils.annotations.PageName;
 
+@PageName(" /*Название страницы*/ ")
 public class /*namePage*/ {
 
     @LocatorProp(

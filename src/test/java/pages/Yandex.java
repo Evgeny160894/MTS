@@ -2,7 +2,9 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import utils.annotations.LocatorProp;
+import utils.annotations.PageName;
 
+@PageName("Яндекс")
 public class Yandex {
 
     @LocatorProp(
@@ -11,7 +13,7 @@ public class Yandex {
     public SelenideElement searchGoogle;
 
     @LocatorProp(
-            name = "Поиск Гугла",
+            name = "Поиск Гугл",
             xpath = "//input[@aria-label='Найти']")
     public SelenideElement searchGoogle1;
 }

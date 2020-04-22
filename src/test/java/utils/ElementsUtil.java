@@ -1,11 +1,17 @@
 package utils;
 
 import com.codeborne.selenide.Condition;
+import io.cucumber.java.an.E;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class ElementsUtil {
+
+    public static ElementsUtil elementsUtil() {
+        final ElementsUtil elementsUtil = new ElementsUtil();
+        return elementsUtil;
+    }
 
     /**
      * Клик по элементу без ожидания его появления

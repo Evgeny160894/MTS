@@ -2,13 +2,10 @@ package stepsDefinitions;
 
 import org.openqa.selenium.By;
 import io.cucumber.java.ru.Тогда;
-import pages.Google;
-import utils.helpers.LocatorsAdder;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class GoogleSteps extends BasicSteps {
-    private final LocatorsAdder locatorsAdder = new LocatorsAdder(Google.class);
+public class GoogleSteps extends Main {
 
     @Тогда("Переход на страницу {string}")
     public void goToPage(String link) {

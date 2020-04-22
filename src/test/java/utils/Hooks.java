@@ -1,11 +1,19 @@
 package utils;
 
 import org.junit.After;
-import stepsDefinitions.BasicSteps;
+import org.junit.BeforeClass;
+import stepsDefinitions.Main;
+import utils.annotations.namePageAnalyzers.NamePageAnalyzer;
 
 public class Hooks {
+    @BeforeClass
+    public void beforeClass() {
+        NamePageAnalyzer namePageAnalyzer = new NamePageAnalyzer();
+        namePageAnalyzer.creatorMapClass();
+    }
+
     @After
     public void resetLocatorsMap() {
-        BasicSteps.locatorsMap.clear();
+        Main.locatorsMap.clear();
     }
 }
