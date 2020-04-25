@@ -8,12 +8,8 @@ import utils.annotations.PageName;
 public class Yandex {
 
     @LocatorProp(
-            name = "Поле Яндекса",
-            xpath = "ыыы")
-    public SelenideElement searchGoogle;
+            name = "Поле поиска Яндекс",
+            xpath = "//input[@aria-label='Запрос']")
+    public SelenideElement yandexSearchField;
 
-    @LocatorProp(
-            name = "Поиск Гугл",
-            xpath = "//input[@aria-label='Найти']")
-    public SelenideElement searchGoogle1;
 }

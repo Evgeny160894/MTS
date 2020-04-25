@@ -21,7 +21,7 @@ public class NamePageAnalyzer {
                 mapNameClasses.put(clazz.getAnnotation(PageName.class).value(), clazz);
             }
         } catch (Exception e) {
-                System.out.println("Страница с таким именем не найдена. ПОДРОБНАЯ ОШИБКА: "+e);
+                System.out.println("Страница с таким именем не найдена. ПОДРОБНАЯ ОШИБКА: " + e);
         }
     }
 

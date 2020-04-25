@@ -8,7 +8,7 @@ import java.util.Scanner;
  * */
 public class NewPageCreator {
 
-    private static String namePage = "";
+    private static String namePage = "xpath";
 
     public static void main(String[] args) throws IOException {
         File newPage = new File("src\\test\\java\\pages\\" + namePage + ".java");

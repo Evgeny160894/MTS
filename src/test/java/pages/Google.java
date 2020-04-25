@@ -13,7 +13,8 @@ public class Google {
     public SelenideElement searchGoogle;
 
     @LocatorProp(
-            name = "Кнопка Купить",
-            xpath = "//input[@aria-label='Найти']")
-    public SelenideElement buyButton;
+            name = "ссылка на яндекс",
+            xpath = "(//h3[text()='Яндекс'])[1]")
+    public SelenideElement yandexLink;
+
 }

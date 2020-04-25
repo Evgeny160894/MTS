@@ -1,12 +1,15 @@
 package utils;
 
 import com.codeborne.selenide.Condition;
-import io.cucumber.java.an.E;
+import lombok.SneakyThrows;
 import org.openqa.selenium.By;
+import stepsDefinitions.stepHelper.PageHelper;
 
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ElementsUtil {
+
 
     public static ElementsUtil elementsUtil() {
         final ElementsUtil elementsUtil = new ElementsUtil();
@@ -19,7 +22,7 @@ public class ElementsUtil {
      * @param locator - локатор элемента
      */
     public ElementsUtil elementClick(String locator) {
-        $(By.xpath(locator)).click();
+        $(byXpath(locator)).click();
 
         return this;
     }
@@ -27,48 +30,101 @@ public class ElementsUtil {
     /**
      * Клик по элементу с ожиданием
      *
-     * @param locator - локатор элемента
+     * @param locator    - локатор элемента
      * @param waitSecond - ожидание в секундах
      */
     public ElementsUtil elementClick(String locator, int waitSecond) {
-        $(By.xpath(locator))
-                .waitUntil(Condition.visible, waitSecond*1000)
+        $(byXpath(locator))
+                .waitUntil(Condition.visible, waitSecond * 1000)
                 .click();
 
         return this;
     }
 
     /**
-     * Ввести текст в поле
+     * Кликает на ссылку найденую по тексту
      *
-     * @param locator - локатор элемента
-     * @param text - вводимый в элемент текст
+     * @param text - текст ссылки
      */
-    public ElementsUtil sendText(String locator, String text) {
-        $(By.xpath(locator)).setValue(text);
-
-        return this;
+    public void clickOnHyperLink(String text) {
+        $(By.linkText(text)).click();
     }
 
     /**
-     * Ввести текст в поле подождав его появления
+     * Проверка отображения элемента
      *
-     * @param locator - локатор элемента
-     * @param text - вводимый в элемент текст
-     * @param waitSecond - ожидание в секундах
+     * @param locator       - локатор элемента
+     * @param needException - локатор элемента
+     * @return - вернет true, если элемент найден, в противном случае false
      */
-    public ElementsUtil sendText(String locator, String text, int waitSecond) {
-        $(By.xpath(locator))
-                .waitUntil(Condition.visible, waitSecond*1000)
-                .setValue(text);
+//    @SneakyThrows
+    public Boolean checkVisibleElement(String locator, boolean needException) {
 
-        return this;
+        boolean success = false;
+
+        try {
+            if (success = !($(byXpath(locator)).isDisplayed()) && needException) {
+                throw new Exception("Элемент \"" + locator + "\" не найден на странице \"" + PageHelper.CURRENT_NAME_PAGE + "\"");
+            } else {
+                success = $(byXpath(locator)).isDisplayed();
+            }
+        }catch (Exception e) {
+            System.out.println("Элемент \"" + locator + "\" не найден на странице \"" + PageHelper.CURRENT_NAME_PAGE + "\"");
+            System.out.println("ПОДРОБНАЯ ОШИБКА: " + e);
+        }
+
+        return success;
+    }
+
+    /**
+     * Сравнить значение элемента с ожидаемым
+     *
+     * @param locator       - xpath из которого будет браться значение
+     * @param expectedText  - значение с которым будет сравниваться
+     * @param needException - вывод ошибки при несоответствии значений
+     */
+    public Boolean compareValueFromElement(String locator, String expectedText, boolean needException) {
+
+        boolean success = false;
+        try {
+            if (!$(byXpath(locator)).getText().equals(expectedText) && needException) {
+                throw new Exception("Текст в поле \"" + locator + "\" НЕ соответствует ожидаемому \"" + expectedText + "\".");
+            } else {
+                success = $(byXpath(locator)).getText().equals(expectedText);
+            }
+        }catch (Exception e) {
+            System.out.println("Текст в поле \"" + locator + "\" НЕ соответствует ожидаемому \"" + expectedText + "\".");
+            System.out.println("ПОДРОБНАЯ ОШИБКА: " + e);
+        }
+
+        return success;
+    }
+
+    /**
+     * Взять текст из элемента по локатору
+     *
+     * @param locator - xpath элемента
+     * @return - возвращаемое значение типа String
+     */
+    public String getElementValue(String locator) {
+        return $(By.xpath(locator)).getText();
+    }
+
+    /**
+     * Взять текст из элемента по локатору ожидая его появления
+     *
+     * @param locator    - xpath элемента
+     * @param waitSecond - время ожидания появления элемента в секундах
+     * @return - возвращаемое значение типа String
+     */
+    public String getElementValue(String locator, int waitSecond) {
+        return $(By.xpath(locator)).waitUntil(Condition.visible, waitSecond * 1000).getText();
     }
 
     /**
      * Нажатие на кнопку ENTER
      */
-    public void pressEnter() {
+    public void enter() {
 
     }
 

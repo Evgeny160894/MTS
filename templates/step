@@ -1,9 +1,8 @@
 package stepsDefinitions;
 
 import io.cucumber.java.ru.Тогда;
-import pages./*namePage*/;
 
-public class /*namePageSteps*/ extends BasicSteps {
+public class /*namePageSteps*/ extends Main {
 
     @Тогда(" *Название шага* ")
     public void /*TODO название метода */ goToPage() {
