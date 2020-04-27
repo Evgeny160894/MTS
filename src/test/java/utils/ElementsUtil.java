@@ -63,7 +63,7 @@ public class ElementsUtil {
         boolean success = false;
 
         try {
-            if (success = !($(byXpath(locator)).isDisplayed()) && needException) {
+            if (!($(byXpath(locator)).isDisplayed()) && needException) {
                 throw new Exception("Элемент \"" + locator + "\" не найден на странице \"" + PageHelper.CURRENT_NAME_PAGE + "\"");
             } else {
                 success = $(byXpath(locator)).isDisplayed();
@@ -71,6 +71,7 @@ public class ElementsUtil {
         }catch (Exception e) {
             System.out.println("Элемент \"" + locator + "\" не найден на странице \"" + PageHelper.CURRENT_NAME_PAGE + "\"");
             System.out.println("ПОДРОБНАЯ ОШИБКА: " + e);
+            System.exit(1);
         }
 
         return success;
@@ -95,6 +96,7 @@ public class ElementsUtil {
         }catch (Exception e) {
             System.out.println("Текст в поле \"" + locator + "\" НЕ соответствует ожидаемому \"" + expectedText + "\".");
             System.out.println("ПОДРОБНАЯ ОШИБКА: " + e);
+            System.exit(1);
         }
 
         return success;
