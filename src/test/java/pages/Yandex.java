@@ -12,4 +12,9 @@ public class Yandex {
             xpath = "//input[@aria-label='Запрос']")
     public SelenideElement yandexSearchField;
 
+    @LocatorProp(
+            name = "Поиск",
+            xpath = "(//h3[text()='Яндекс'])[1]")
+    public SelenideElement yandexLink;
+
 }

@@ -66,6 +66,18 @@ public class PageHelper extends Main {
 
     /**
      * Закрытие текущей открытой вкладки браузера
+     *
+     * @param namePage - имя пейджи с которой производится работа
+     */
+    @Тогда("закрыть текущую вкладку и работа со страницей {string}")
+    public void quitTabAndWorkToPage(String namePage) {
+        WebDriverRunner.getWebDriver().close();
+        goToCurrentPage();
+        goAndWorkToPage(namePage);
+    }
+
+    /**
+     * Закрытие текущей открытой вкладки браузера
      */
     @Тогда("закрыть текущую вкладку")
     public void quitTab() {
